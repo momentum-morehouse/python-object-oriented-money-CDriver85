@@ -1,15 +1,17 @@
 # pylint: disable=unidiomatic-typecheck,unnecessary-pass
+import pbd; pdb.set_
+
+# pass
 
 
 class DifferentCurrencyError(Exception):
-    pass
+  
 
 
 class Currency:
     """
     Represents a currency. Does not contain any exchange rate info.
     """
-
     def __init__(self, name, code, symbol=None, digits=2):
         """
         Parameters:
@@ -18,38 +20,52 @@ class Currency:
         - symbol - optional symbol used to designate currency
         - digits -- number of significant digits used
         """
-        pass
+        self.name = name
+        self.code = code
+        self.symbol = symbol
+        self.digital = digits
 
     def __str__(self):
         """
         Should return the currency code, or code with symbol in parentheses.
         """
-        pass
-
+        # pass
+    return f"{self.name} or {self.digital}"
+    return f"{self.symbol} or {self.code}"
+  
+      """
     def __eq__(self, other):
         """
+         return (type(self) == type(other) and self.name == other.name and self.code == other.code and
+         self.symbol == other.symbol and self.digits == other.digits)
+        
         All fields must be equal to for the objects to be equal.
-        """
-        return (type(self) == type(other) and self.name == other.name and
-                self.code == other.code and self.symbol == other.symbol and
-                self.digits == other.digits)
-
-
-class Money:
+       """
+    class Money:
     """
     Represents an amount of money. Requires an amount and a currency.
     """
-
-    def __init__(self, amount, currency):
+   
         """
+        self.money =[]
+        for amount in amounts:
+          for currency in currencies:
+            self.money.append Money(amount,currency))
+           ]
         Parameters:
         - amount -- quantity of currency
         - currency -- type of currency
         """
-        pass
+      
+    
+        """def __str__(self):
+          breakpoint()
+        if self.currency.symbol:  
+          return f"{self.currency.symbol} {self.amount:.{self.currency.digits}f}"
+        else:
+          return f"{self.currency.code} {self.amount:.{self.currency.digits}f}"
 
-    def __str__(self):
-        """
+      
         Should use the currency symbol if available, else use the code.
         Use the currency digits to determine number of digits to show.
         """
@@ -60,12 +76,19 @@ class Money:
 
     def __eq__(self, other):
         """
-        All fields must be equal to for the objects to be equal.
+        def __repr__(self):
+        return f"<Money {str(self)}>"
+
+    def __eq__(self, other):
+      print("name __eq__ called")  
+        return self.value == other
+
+
+All fields must be equal to for the objects to be equal.
         """
-
-        return (type(self) == type(other) and self.amount == other.amount and
-                self.currency == other.currency)
-
+  return (type(self) == type(other) and self.amount == other.amount and
+        self.currency == other.currency)
+    
     def add(self, other):
         """
         Add two money objects of the same currency. If they have different
